@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="stylelogin.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            max-width: 900px;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Estilo del cuadro de inicio de sesión */
+        .login-box {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .login-box .logo {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .login-box h2 {
+            margin: 0 0 20px;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .login-box form {
+            width: 100%;
+        }
+
+        .login-box label {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #333;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        /* Estilo para el contenedor del campo de contraseña */
+        .password-container {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2em;
+            color: #555;
+            user-select: none;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        .remember-me label {
+            margin-left: 5px;
+        }
+
+        .forgot-password {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 12px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-text {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #555;
+            text-align: center;
+        }
+
+        .register-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para la imagen lateral */
+        .side-image {
+            display: none;
+            flex: 1;
+            background-color: #f0f0f0;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .side-image img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .caption {
+            font-size: 1em;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        /* Media query para pantallas grandes */
+        @media (min-width: 768px) {
+            .side-image {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Box -->
+        <div class="login-box">
+            <img src="global/favicon.ico" alt="GBM Logo" class="logo">
+            <h2>Inicia sesión</h2>
+            <form action="#">
+                <label for="rpe">RPE</label>
+                <input type="text" id="rpe" placeholder="RPE" required>
+                
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Recordar mi usuario</label>
+                </div>
+
+                <label for="password">Contraseña</label>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Contraseña" required>
+                    <span class="toggle-password" id="togglePassword">👁️</span>
+                </div>
+                
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                
+                <button type="submit" class="login-button">Iniciar sesión</button>
+            </form>
+            <p class="register-text">¿Aún no te registras? <a href="#">Crea tu registro</a></p>
+        </div>
+        
+        <!-- Side Image -->
+        <div class="side-image">
+            <img src="imagenes/empleados/elect.webp" alt="Electricista en central termoelectrica">
+            <p class="caption">Una empresa de clase mundial.</p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript para el botón de ver contraseña
+        const togglePasswordIcon = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+
+        togglePasswordIcon.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+</html>
